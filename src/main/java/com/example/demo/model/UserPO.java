@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -17,8 +19,11 @@ public class UserPO {
 
     @NotNull
     private String password;
+    @NotNull
+    private String sno;
     //mappedBy 配置映射关系：当前用户名属于哪个student 对象
     // 默认值optional = true表示idcard_id可以为空;反之。。。
+    @JsonIgnore
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id",unique = true)
     //unique=true 确保了一对一关系

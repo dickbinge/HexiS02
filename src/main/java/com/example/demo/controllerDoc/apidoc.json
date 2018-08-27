@@ -1,0 +1,16 @@
+{
+  "name": "Student Management Restful API",
+  "version": "1.0.1",
+  "description": "Student Management Restful API declaration.",
+  "title": "Student Management API",
+  "sampleUrl_tmp": "http://localhost:8080/test",
+  "order": [
+    "UserMgmt",
+    "StudentMgmt",
+  ],
+  "template": {
+    "forceLanguage": "en",
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

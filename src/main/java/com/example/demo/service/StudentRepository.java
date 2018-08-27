@@ -8,7 +8,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-public interface StudentRepository extends JpaRepository<UserPO,Integer> {
+public interface StudentRepository extends JpaRepository<StudentPO,Integer> {
     StudentPO findByName(String name);
+    StudentPO findBySno(String sno);
 //    List<StudentPO> findBySex(char sex);
 }

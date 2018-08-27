@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
@@ -20,9 +22,11 @@ public class StudentPO {
     @NotNull
     private String sno;
 
+    @JsonIgnore
     @OneToOne(optional = false,mappedBy = "student",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserPO user;
 
+    @JsonIgnore
     @ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable( name="t_sc", schema = "metadata_student",
             joinColumns = @JoinColumn(name="sid"),
