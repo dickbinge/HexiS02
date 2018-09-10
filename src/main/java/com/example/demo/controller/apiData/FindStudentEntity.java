@@ -11,5 +11,5 @@ public class FindStudentEntity {
     private int size;
 
     private  String like;
-    private char sex;
+    private String sex;
 }

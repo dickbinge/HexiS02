@@ -17,7 +17,7 @@ public class StudentDataMgmt {
         boolean result=false;
         try{
             boolean bfindSame=false;
-            StudentPO studentPO=studentRepository.findBySno( data.getSno() );
+            StudentPO studentPO=studentRepository.findOneBySno( data.getSno() );
             if(studentPO!=null){
                 bfindSame=true;
 
@@ -40,7 +40,7 @@ public class StudentDataMgmt {
     public boolean EditStudentData(PostStudentData data){
         boolean result=false;
         try{
-            StudentPO studentPO=studentRepository.findBySno( data.getSno() );
+            StudentPO studentPO=studentRepository.findOneBySno( data.getSno() );
             if(studentPO!=null){
                 StudentPO poNew=new StudentPO();
                 poNew.setId( studentPO.getId() );
@@ -55,6 +55,21 @@ public class StudentDataMgmt {
                 result=true;
             }
         }catch (Exception ex){}
+        return result;
+    }
+
+    public boolean DeleteStudentData(String sno){
+        boolean result=false;
+        try{
+            StudentPO studentPO=studentRepository.findOneBySno( sno );
+            if(studentPO!=null){
+                studentRepository.delete( studentPO );
+                result=true;
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
         return result;
     }
 }

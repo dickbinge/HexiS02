@@ -13,13 +13,16 @@ import java.util.Set;
 @Table(name = "t_student", schema = "metadata_student")
 public class StudentPO {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
+    @Column(name = "name")
     private  String name;
 
     @NotNull
+    @Column(name = "sno")
     private String sno;
 
     @JsonIgnore
@@ -33,13 +36,18 @@ public class StudentPO {
             inverseJoinColumns = @JoinColumn(name="cid"))
     private Set<CoursePO> courses=new HashSet<CoursePO>();
 
-    private char sex;
+    @Column(name = "sex")
+    private String sex;
 
+    @Column(name = "age")
     private int age;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "profession")
     private String profession;
 }

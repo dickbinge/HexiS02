@@ -11,15 +11,19 @@ import javax.validation.constraints.NotNull;
 @Table(name = "t_user", schema = "metadata_student")
 public class UserPO {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;   //id主键
 
     @NotNull
+    @Column(name = "name")
     private String name;  //系统账户名
 
     @NotNull
+    @Column(name = "password")
     private String password;
     @NotNull
+    @Column(name = "sno")
     private String sno;
     //mappedBy 配置映射关系：当前用户名属于哪个student 对象
     // 默认值optional = true表示idcard_id可以为空;反之。。。

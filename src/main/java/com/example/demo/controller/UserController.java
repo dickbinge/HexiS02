@@ -5,6 +5,7 @@ import com.example.demo.controller.apiData.PageModel;
 import com.example.demo.controller.apiData.UserRequestData;
 import com.example.demo.entities.AddUserData;
 import com.example.demo.entities.ErrorHandler;
+import com.example.demo.entities.LoginCheckData;
 import com.example.demo.model.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -80,5 +81,26 @@ public class UserController {
        ret.put("result",result);
        responseEntity=new ResponseEntity<>(ret,HttpStatus.OK);
        return responseEntity;
+    }
+
+    @RequestMapping(value = "login_check",method=RequestMethod.POST)
+    public ResponseEntity<?> checkUser(@RequestBody LoginCheckData data){
+        ResponseEntity<?> responseEntity=null;
+        String retMsg="";
+        boolean ret=userDataMgmt.CheckUser( data.getUsername()); //check the username
+        if(!ret){
+            retMsg=userDataMgmt.getMsg();
+        }
+        else{
+            ret=userDataMgmt.CheckUserAndPassWord(data);
+            if(!ret){
+                retMsg=userDataMgmt.getMsg();
+            }
+        }
+        Map<String,Object> map=new HashMap<>( );
+        map.put("result",ret);
+        map.put("retmsg",retMsg);
+        responseEntity=new ResponseEntity<>(map,HttpStatus.OK);
+        return responseEntity;
     }
 }

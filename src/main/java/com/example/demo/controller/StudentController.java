@@ -9,14 +9,14 @@ import com.example.demo.entities.PostStudentData;
 import com.example.demo.model.StudentPO;
 import com.example.demo.model.UserPO;
 import com.example.demo.service.StudentRepository;
+import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -29,6 +29,7 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
     @Autowired private StudentDataMgmt studentDataMgmt;
+    @Autowired private StudentService studentService;
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public ResponseEntity<?> getStudentList(){
         ResponseEntity<?> responseEntity=null;
@@ -45,9 +46,13 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/find",method = RequestMethod.POST)
-    public ResponseEntity<?> findStudent(FindStudentEntity entity){
-        ResponseEntity<?> responseEntity=null;
-        return responseEntity;
+    public ResponseEntity<?> findStudent(@RequestBody @Valid FindStudentEntity entity,BindingResult bind){
+        if(bind.hasErrors()){
+            return new ResponseEntity<>(ErrorHandler.GetError(bind),HttpStatus.OK);
+        }else {
+            Pageable pageable = new PageRequest(entity.getPage(),entity.getSize());
+            return new ResponseEntity<Object>(studentService.findStudent(pageable,entity.getLike(),entity.getSex()),HttpStatus.OK);
+        }
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
@@ -78,5 +83,19 @@ public class StudentController {
         return responseEntity;
     }
 
-
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteStudent(@RequestParam String sno)
+    {
+        ResponseEntity<?> responseEntity=null;
+        try {
+            boolean result=studentDataMgmt.DeleteStudentData(sno);
+            Map<String,Object> retMap=new HashMap<>();
+            retMap.put("result",result);
+            responseEntity=new ResponseEntity<>(retMap,HttpStatus.OK);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return responseEntity;
+    }
 }

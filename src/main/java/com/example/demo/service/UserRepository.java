@@ -15,9 +15,9 @@ import java.util.List;
 @Transactional
 public interface UserRepository extends JpaRepository<UserPO,Integer>{
     List<UserPO> findAll();
-    UserPO findById(Integer id);
-    UserPO findByName(String name);
-    UserPO findByNameAndPassword(String name,String password);
+    UserPO findOneById(Integer id);
+    UserPO findOneByName(String name);
+    UserPO findOneByNameAndPassword(String name,String password);
     @Query(value = "select u from UserPO u")
     Page<UserPO> findAllUser(Pageable page); //分页查询
     @Query(value = "select u from UserPO u where u.name like %:likeString%")
