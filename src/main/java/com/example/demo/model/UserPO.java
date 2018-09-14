@@ -22,15 +22,18 @@ public class UserPO {
     @NotNull
     @Column(name = "password")
     private String password;
+
     @NotNull
     @Column(name = "sno")
     private String sno;
     //mappedBy 配置映射关系：当前用户名属于哪个student 对象
     // 默认值optional = true表示idcard_id可以为空;反之。。。
+
     @JsonIgnore
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id",unique = true)
     //unique=true 确保了一对一关系
+
     private StudentPO student;
     private String email;
 

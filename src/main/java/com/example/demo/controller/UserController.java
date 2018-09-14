@@ -29,6 +29,12 @@ public class UserController {
     @Autowired private  UserRepository repository;
     @Autowired private UserService userService;
     @Autowired private UserDataMgmt userDataMgmt;
+
+    @RequestMapping(value="/test",method = RequestMethod.GET)
+    public String getUserInfo(){
+        return "HelloWorld";
+    }
+
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public ResponseEntity<?> getUserList(){
         ResponseEntity<?> resEntity=null;

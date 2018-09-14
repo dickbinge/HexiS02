@@ -36,6 +36,10 @@ public class StudentPO {
             inverseJoinColumns = @JoinColumn(name="cid"))
     private Set<CoursePO> courses=new HashSet<CoursePO>();
 
+    @JsonIgnore
+    @ManyToOne(cascade=CascadeType.ALL,optional=true)
+    private ClassMatePO classMatePO;
+
     @Column(name = "sex")
     private String sex;
 

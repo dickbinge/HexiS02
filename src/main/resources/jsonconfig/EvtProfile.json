@@ -1,0 +1,329 @@
+{
+  "profile":
+              [
+                {
+                  "id": "1",
+                  "type": "System",
+                  "keys":
+                          [
+                            "System Monitor Info"
+                          ],
+                  "subTypes":
+                              [
+                                {
+                                  "id": "1",
+                                  "type": "内存使用率过高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "mem",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "2",
+                                  "type": "CPU使用率过高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "cpu",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                }
+                              ]
+                },
+                {
+                  "id": "2",
+                  "type": "Process",
+                  "keys":
+                          [
+                            "Process Monitor Info"
+                          ],
+                  "subTypes":
+                              [
+                                {
+                                  "id": "1",
+                                  "type": "内存使用率过高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "mem",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "2",
+                                  "type": "CPU使用率过高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "cpu",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                }
+                              ]
+                },
+                {
+                  "id": "3",
+                  "type": "HDD",
+                  "keys":
+                          [
+                            "HDDMonitor"
+                          ],
+                  "subTypes":
+                              [
+                                {
+                                  "id": "1",
+                                  "type": "硬盘温度过高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "hddTemp",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                }
+                              ]
+                },
+                {
+                  "id": "4",
+                  "type": "Hardware",
+                  "keys":
+                          [
+                            "SUSIControl"
+                          ],
+                  "subTypes":
+                              [
+                                {
+                                  "id": "1",
+                                  "type": "CPU温度偏高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Temperature/CPU",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "2",
+                                  "type": "CPU风扇转速偏低",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Fan Speed/CPU",
+                                                        "<"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "3",
+                                  "type": "主板温度偏高",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Temperature/System",
+                                                        ">"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "4",
+                                  "type": "主板风扇转速偏低",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Fan Speed/System",
+                                                        "<"
+                                                      ]
+                                            }
+                                          ]
+                                }
+                              ]
+                },
+                {
+                  "id": "5",
+                  "type": "Network",
+                  "keys":
+                          [
+                            "Connected"
+                          ],
+                  "subTypes":
+                              [
+                                {
+                                  "id": "1",
+                                  "type": "设备上线",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Agent Connected"
+                                                      ]
+                                            }
+                                          ]
+                                },
+                                {
+                                  "id": "2",
+                                  "type": "设备断线",
+                                  "keys":
+                                          [
+                                            {
+                                              "term":
+                                                      [
+                                                        "Agent Lost Connected"
+                                                      ]
+                                            }
+                                          ]
+                                }
+                              ]
+                },
+                {
+                  "id":"6",
+                  "type":"Printer",
+                  "keys":
+                          [
+                            "Printer Error"
+                          ],
+                  "subTypes":
+                          [
+                            {
+                              "id": "1",
+                              "type": "切刀错误",
+                              "keys":
+                                      [
+                                        {
+                                          "term":
+                                                  [
+                                                    "Cut Error"
+                                                  ]
+                                        }
+                                      ]
+                            },
+                            {
+                              "id":"2",
+                              "type":"Flash 错误",
+                              "keys":
+                                      [
+                                        {
+                                          "term":
+                                          [
+                                            "Flash Error"
+                                          ]
+                                        }
+                                      ]
+                            },
+                            {
+                              "id":"3",
+                              "type":"缺纸",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "No Paper Error"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id":"4",
+                              "type":"黑标错误",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "Blackmark Error"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id":"5",
+                              "type":"打印机错误",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "Printer Error"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id":"6",
+                              "type":"打印机过热",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "Over Hot Error"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id":"7",
+                              "type":"开盖报警",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "Open Cover Error"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id":"8",
+                              "type":"内存错误",
+                              "keys":
+                              [
+                                {
+                                  "term":
+                                  [
+                                    "Memory Error"
+                                  ]
+                                }
+                              ]
+                            }
+
+                          ]
+
+                }
+              ]
+}
